@@ -2,8 +2,28 @@
 
 @theme {
   --font-inter: var(--font-inter);
+  --color-primary-300: #38334d;
+  --color-primary-200: #59517b;
+  --color-primary-100: #e6e6e6;
+  --color-neutral: #f1f0f5;
+  --color-neutral-gray: #dddddd;
+  --color-gradient-start: #59517b;
+  --color-gradient-end: #433d5c;
 }
 
 body {
-  @apply font-inter;
+  @apply font-inter bg-neutral text-primary-300 leading-[150%];
+}
+
+a,
+button {
+  @apply cursor-pointer;
+}
+
+.btn-primary {
+  @apply rounded-lg bg-primary-300 text-neutral font-semibold hover:bg-primary-300/80 transition-colors duration-300;
+}
+
+.btn-secondary {
+  @apply rounded-lg bg-primary-100 border border-neutral-gray text-primary-300 font-semibold;
 }
