@@ -21,7 +21,7 @@ if (!cached) {
   cached = global.mongoose = { conn: null, promise: null };
 }
 
-async function connectDB(): Promise<typeof mongoose> {
+async function connectToDB(): Promise<typeof mongoose> {
   if (cached!.conn) {
     console.log("We have a cached connection!");
     return cached!.conn;
@@ -51,4 +51,4 @@ async function connectDB(): Promise<typeof mongoose> {
   return cached!.conn;
 }
 
-export default connectDB;
+export default connectToDB;
