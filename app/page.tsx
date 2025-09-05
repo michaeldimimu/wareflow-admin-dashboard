@@ -1,17 +1,17 @@
 import { signIn, signOut } from "@/auth/auth";
+import getCachedSession from "@/auth/lib/getCachedSession";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+export default async function Home() {
+  const session = await getCachedSession();
+
+  if (!session?.user) {
+    redirect("/sign-in");
+  }
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <form
-        action={async () => {
-          "use server";
-          await signIn("google");
-        }}
-      >
-        <button type="submit">Sign in</button>
-      </form>
+    <>
+      <h1>Welcome home!</h1>
       <form
         action={async () => {
           "use server";
@@ -20,6 +20,6 @@ export default function Home() {
       >
         <button type="submit">Sign out</button>
       </form>
-    </main>
+    </>
   );
 }
