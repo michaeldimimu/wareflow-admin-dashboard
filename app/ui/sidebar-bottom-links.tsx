@@ -1,12 +1,15 @@
 "use client";
 
-import { LogOut, Settings2 } from "lucide-react";
+import { useState } from "react";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+
+import { LoaderCircle, LogOut, Settings2 } from "lucide-react";
 
 const SidebarBottomLinks = () => {
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
   const pathname = usePathname();
 
   return (
@@ -25,11 +28,28 @@ const SidebarBottomLinks = () => {
 
       <li>
         <button
-          onClick={async () => await signOut()}
+          disabled={isLoggingOut}
+          onClick={async () => {
+            setIsLoggingOut(true);
+            try {
+              await signOut();
+            } catch (error) {
+              console.error("Logout failed:", error);
+            } finally {
+              setIsLoggingOut(false);
+            }
+          }}
           className="flex items-center gap-2 px-3 py-2 font-medium rounded-md w-full text-status-error hover:bg-status-error/10 transition-colors duration-300"
         >
-          <LogOut className="min-h-[20px] min-w-[20px]" />
-          <span className="hidden md:block">Log out</span>
+          {isLoggingOut ? (
+            <LoaderCircle className="min-h-[20px] min-w-[20px] animate-spin" />
+          ) : (
+            <LogOut className="min-h-[20px] min-w-[20px]" />
+          )}
+
+          <span className="hidden md:block">
+            {isLoggingOut ? "Logging out" : "Log out"}
+          </span>
         </button>
       </li>
     </ul>
