@@ -15,7 +15,7 @@ const SidebarBottomLinks = () => {
   return (
     <ul className="flex flex-col gap-2 bg-white border border-neutral-gray rounded-lg p-2 md:p-4">
       <li
-        className={`${pathname === "settings" && "bg-primary-100"} rounded-md`}
+        className={`${pathname === "/settings" && "bg-primary-100"} rounded-md`}
       >
         <Link
           href="/settings"
