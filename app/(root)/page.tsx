@@ -1,4 +1,4 @@
-import { signIn, signOut } from "@/auth/auth";
+import { signOut } from "@/auth/auth";
 import getCachedSession from "@/auth/lib/getCachedSession";
 import { redirect } from "next/navigation";
 

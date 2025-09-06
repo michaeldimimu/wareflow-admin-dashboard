@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "./ui/navbar";
-import getCachedSession from "@/auth/lib/getCachedSession";
 
 const inter = localFont({
   src: "./fonts/Inter-VariableFont_opsz,wght.ttf",
@@ -19,14 +17,9 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await getCachedSession();
-
   return (
     <html lang="en">
-      <body className={inter.variable}>
-        {session?.user && <Navbar />}
-        {children}
-      </body>
+      <body className={inter.variable}>{children}</body>
     </html>
   );
 }

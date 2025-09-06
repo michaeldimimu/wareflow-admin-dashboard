@@ -9,6 +9,9 @@
   --color-neutral-gray: #dddddd;
   --color-gradient-start: #59517b;
   --color-gradient-end: #433d5c;
+  --color-status-error: #b20000;
+  --color-status-warning: #b2b200;
+  --color-status-success: #1eb200;
 }
 
 body {
