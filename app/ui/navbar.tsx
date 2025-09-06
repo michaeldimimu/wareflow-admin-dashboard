@@ -21,15 +21,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between py-2 border-b border-neutral-gray">
-      <h1 className="text-2xl capitalize font-semibold">
-        Warehouse Inc's {returnCurrentPage()}
+    <nav className="flex items-center justify-between gap-8 pb-2 border-b border-neutral-gray">
+      <h1 className="text-lg sm:text-xl lg:text-2xl capitalize font-semibold">
+        {returnCurrentPage()}
       </h1>
 
       <div className="flex items-center gap-4">
-        <button className="btn-secondary flex items-center gap-1 px-4 py-2 pl-3">
+        <button className="btn-secondary flex items-center gap-1 p-2 lg:px-4 lg:py-2 lg:pl-3">
           <Search size={24} />
-          <span className="text-primary-200">
+          <span className="hidden lg:block text-primary-200 font-normal">
             Search <span className="font-semibold">[Ctrl+K]</span>
           </span>
         </button>
@@ -44,17 +44,17 @@ const Navbar = () => {
         {/* TODO: make link go to profile settings tab */}
         <Link
           href="/settings"
-          className="btn-secondary pr-2 pl-0 flex items-center gap-2 overflow-hidden"
+          className="btn-secondary sm:pr-2 pl-0 flex items-center gap-2 overflow-hidden"
         >
           <Image
             src={session.data?.user.image || "https://placehold.co/44x44"}
             alt="User Avatar"
             width={44}
             height={44}
-            className="rounded-r-lg"
+            className="rounded-r-lg min-h-10 min-w-10 object-cover"
           />
 
-          <div>
+          <div className="hidden sm:block">
             <p className="text-sm">
               {truncateUserName(session.data?.user.name || "Unknown User")}
             </p>

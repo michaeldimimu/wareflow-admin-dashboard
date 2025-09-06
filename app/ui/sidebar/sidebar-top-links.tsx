@@ -36,7 +36,7 @@ const SidebarTopLinks = () => {
   const pathname = usePathname();
 
   return (
-    <ul className="flex flex-col gap-2 bg-white border border-neutral-gray rounded-lg p-2 md:p-4">
+    <ul className="flex flex-col gap-2 bg-white border border-neutral-gray rounded-lg p-1 sm:p-2 md:p-4">
       {sidebarItems.map((item: any) => (
         <li
           key={item.id}
@@ -44,7 +44,7 @@ const SidebarTopLinks = () => {
         >
           <Link
             href={item.href}
-            className="flex items-center gap-2 px-3 py-2 font-medium"
+            className="flex items-center justify-center md:justify-start gap-2 px-3 py-2 font-medium"
           >
             <item.icon className="min-h-[20px] min-w-[20px]" />
             <span className="hidden md:block">{item.label}</span>

@@ -18,6 +18,12 @@ body {
   @apply font-inter bg-neutral text-primary-300 leading-[150%];
 }
 
+h1,
+h2,
+h3 {
+  @apply leading-[100%];
+}
+
 a,
 button {
   @apply cursor-pointer;

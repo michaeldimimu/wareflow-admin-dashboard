@@ -13,7 +13,7 @@ const SidebarBottomLinks = () => {
   const pathname = usePathname();
 
   return (
-    <ul className="flex flex-col gap-2 bg-white border border-neutral-gray rounded-lg p-2 md:p-4">
+    <ul className="flex flex-col gap-2 bg-white border border-neutral-gray rounded-lg p-1 sm:p-2 md:p-4">
       <li
         className={`${pathname === "/settings" && "bg-primary-100"} rounded-md`}
       >
@@ -39,7 +39,7 @@ const SidebarBottomLinks = () => {
               setIsLoggingOut(false);
             }
           }}
-          className="flex items-center gap-2 px-3 py-2 font-medium rounded-md w-full text-status-error hover:bg-status-error/10 transition-colors duration-300"
+          className="flex items-center justify-center md:justify-start gap-2 px-3 py-2 font-medium rounded-md w-full text-status-error hover:bg-status-error/10 transition-colors duration-300"
         >
           {isLoggingOut ? (
             <LoaderCircle className="min-h-[20px] min-w-[20px] animate-spin" />
