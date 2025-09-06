@@ -1,5 +1,5 @@
 import Navbar from "../ui/navbar";
-import Sidebar from "../ui/sidebar";
+import Sidebar from "../ui/sidebar/sidebar";
 
 export default async function Layout({
   children,
