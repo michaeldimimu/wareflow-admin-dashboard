@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.10.0",
+    "@faker-js/faker": "^10.0.0",
     "chart.js": "^4.5.0",
+    "faker": "^6.6.6",
     "lucide-react": "^0.542.0",
     "mongodb": "^6.19.0",
     "mongoose": "^8.18.0",
