@@ -40,7 +40,11 @@ const SidebarTopLinks = () => {
       {sidebarItems.map((item: any) => (
         <li
           key={item.id}
-          className={`${pathname === item.href && "bg-primary-100"} rounded-md`}
+          className={`${
+            pathname === item.href
+              ? "bg-primary-100"
+              : "hover:bg-primary-100/50"
+          } rounded-md transition duration-300`}
         >
           <Link
             href={item.href}
