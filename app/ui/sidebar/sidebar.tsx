@@ -4,7 +4,7 @@ import SidebarBottomLinks from "./sidebar-bottom-links";
 
 const Sidebar = () => {
   return (
-    <aside className="w-16 md:w-48 flex flex-col justify-between">
+    <aside className="hidden sm:flex w-16 md:w-48 flex-col gap-4">
       <div>
         <div className="grid place-content-center bg-white w-full rounded-lg border border-neutral-gray p-2 md:p-4 mb-4">
           <Image

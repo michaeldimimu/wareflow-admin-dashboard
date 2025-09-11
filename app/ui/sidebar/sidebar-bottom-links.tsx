@@ -21,7 +21,7 @@ const SidebarBottomLinks = () => {
       >
         <Link
           href="/settings"
-          className="flex items-center gap-2 px-3 py-2 font-medium"
+          className="flex items-center justify-center md:justify-start gap-2 px-3 py-2 font-medium"
         >
           <Settings2 className="min-h-[20px] min-w-[20px]" />
           <span className="hidden md:block">Settings</span>
