@@ -40,3 +40,24 @@ button:disabled {
 .btn-secondary {
   @apply rounded-lg bg-primary-100 border border-neutral-gray text-primary-300 font-semibold;
 }
+
+table {
+  @apply text-left;
+}
+
+thead {
+  @apply bg-primary-100;
+}
+
+tbody {
+  @apply bg-white;
+}
+
+tr {
+  @apply border-b border-neutral-gray last:border-0;
+}
+
+td,
+th {
+  @apply py-2 px-4;
+}
