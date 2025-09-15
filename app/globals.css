@@ -34,7 +34,7 @@ button:disabled {
 }
 
 .btn-primary {
-  @apply rounded-lg bg-primary-300 text-neutral font-semibold hover:bg-primary-300/80 transition-colors duration-300;
+  @apply rounded-lg bg-primary-300 text-neutral font-semibold;
 }
 
 .btn-secondary {
