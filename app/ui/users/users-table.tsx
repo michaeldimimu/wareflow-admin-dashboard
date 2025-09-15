@@ -1,6 +1,7 @@
 import fetchUsers from "@/app/data/fetchUsers";
 import { Settings2 } from "lucide-react";
 import Image from "next/image";
+import UserDetailsButton from "./user-details-button";
 
 // Add filter prop to the component
 const UsersTable = async ({ filter }: { filter?: string }) => {
@@ -27,6 +28,7 @@ const UsersTable = async ({ filter }: { filter?: string }) => {
           <th>Name</th>
           <th>Email</th>
           <th>Role</th>
+          <th></th>
           <th className="rounded-tr-lg"></th>
         </tr>
       </thead>
@@ -50,6 +52,9 @@ const UsersTable = async ({ filter }: { filter?: string }) => {
                 <span>Actions</span>
                 <Settings2 size={20} />
               </button>
+            </td>
+            <td>
+              <UserDetailsButton userId={user._id.toString()} />
             </td>
           </tr>
         ))}
