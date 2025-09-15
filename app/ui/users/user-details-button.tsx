@@ -1,7 +1,8 @@
 "use client";
 
 import { EllipsisVertical } from "lucide-react";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import { useSearchParams, usePathname } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 
 const UserDetailsButton = ({ userId }: { userId: string }) => {
   const router = useRouter();

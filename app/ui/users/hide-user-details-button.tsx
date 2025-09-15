@@ -1,6 +1,7 @@
 "use client";
 import { X } from "lucide-react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 
 const HideUserDetailsButton = () => {
   const router = useRouter();
