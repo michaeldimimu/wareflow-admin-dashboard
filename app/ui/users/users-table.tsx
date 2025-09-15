@@ -7,6 +7,18 @@ const UsersTable = async ({ filter }: { filter?: string }) => {
   // Pass the filter to fetchUsers function
   const users = await fetchUsers(filter);
 
+  if (!users.success) {
+    return (
+      <div className="text-center my-16">
+        {users.message || "An error occurred while fetching users."}
+      </div>
+    );
+  }
+
+  if (users.success && users.data?.length === 0) {
+    return <div className="text-center my-16">No users found.</div>;
+  }
+
   return (
     <table>
       <thead>

@@ -22,6 +22,9 @@ export default async function fetchUsers(filter: string = "all") {
       data: users,
     };
   } catch (error) {
-    return { success: false, message: "Failed to fetch users" };
+    return {
+      success: false,
+      message: "Failed to fetch users. Please try again.",
+    };
   }
 }
