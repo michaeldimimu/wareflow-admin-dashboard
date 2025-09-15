@@ -1,6 +1,7 @@
 "use client";
 
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useSearchParams, usePathname } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 
 const UserFilterTabs = () => {
   const router = useRouter();
