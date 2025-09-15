@@ -23,7 +23,7 @@ export default async function RootLayout({
     <html lang="en">
       <SessionProvider>
         <body className={inter.variable}>
-          <NextTopLoader />
+          <NextTopLoader showSpinner={false} />
           {children}
         </body>
       </SessionProvider>
