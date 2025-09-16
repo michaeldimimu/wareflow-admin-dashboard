@@ -1,3 +1,5 @@
+"use server";
+
 import getCachedSession from "@/auth/lib/getCachedSession";
 import connectToDB from "@/lib/connectToDB";
 import User from "@/models/User.model";
