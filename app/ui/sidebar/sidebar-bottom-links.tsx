@@ -16,7 +16,9 @@ const SidebarBottomLinks = () => {
     <ul className="flex flex-col gap-2 bg-white border border-neutral-gray rounded-lg p-1 sm:p-2 md:p-4">
       <li
         className={`${
-          pathname === "/settings" ? "bg-primary-100" : "bg-primary-100/50"
+          pathname === "/settings"
+            ? "bg-primary-100"
+            : "hover:bg-primary-100/50"
         } rounded-md transition duration-300`}
       >
         <Link
