@@ -1,7 +1,7 @@
 import fetchUsers from "@/app/data/fetchUsers";
 import Image from "next/image";
-import UserDetailsButton from "./user-details-button";
-import UserActionsButton from "./user-actions-button";
+import DeleteUserButton from "./delete-user-button";
+import UserRoleToggle from "./user-role-toggle";
 
 // Add filter prop to the component
 const UsersTable = async ({ filter }: { filter?: string }) => {
@@ -28,7 +28,6 @@ const UsersTable = async ({ filter }: { filter?: string }) => {
           <th>Name</th>
           <th>Email</th>
           <th>Role</th>
-          <th></th>
           <th className="rounded-tr-lg"></th>
         </tr>
       </thead>
@@ -46,12 +45,14 @@ const UsersTable = async ({ filter }: { filter?: string }) => {
             </td>
             <td>{user.name}</td>
             <td>{user.email}</td>
-            <td className="capitalize font-semibold">{user.role}</td>
-            <td className="last:rounded-br-lg">
-              <UserActionsButton userId={user._id.toString()} />
-            </td>
             <td>
-              <UserDetailsButton userId={user._id.toString()} />
+              <UserRoleToggle
+                userId={user._id.toString()}
+                currentRole={user.role}
+              />
+            </td>
+            <td className="last:rounded-br-lg">
+              <DeleteUserButton userId={user._id.toString()} />
             </td>
           </tr>
         ))}
