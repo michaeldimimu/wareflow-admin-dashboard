@@ -6,10 +6,12 @@ import { useState } from "react";
 
 const UserRoleToggle = ({
   userId,
-  currentRole,
+  userRole,
+  loggedInUser,
 }: {
   userId: string;
-  currentRole: string;
+  userRole: string;
+  loggedInUser: any;
 }) => {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -30,15 +32,18 @@ const UserRoleToggle = ({
     }
   };
 
-  return isLoading ? (
+  return loggedInUser.id.toString() === userId.toString() ||
+    loggedInUser.role !== "admin" ? (
+    <span className="font-semibold text-sm capitalize pl-1.5">{userRole}</span>
+  ) : isLoading ? (
     <LoaderCircle className="animate-spin" />
   ) : (
     <select
-      value={currentRole}
+      value={userRole}
       onChange={(e) => handleUpdateRole(e.target.value)}
       name="role"
       id="role"
-      className="font-semibold text-sm"
+      className="font-semibold text-sm cursor-pointer"
     >
       <option value="worker">Worker</option>
       <option value="manager">Manager</option>

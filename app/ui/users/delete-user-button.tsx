@@ -32,7 +32,7 @@ const ConfirmUserDeletion = ({
 
   return (
     <>
-      <div className="fixed bg-black/10 backdrop-blur-xs inset-0" />
+      <div className="fixed bg-black/20 backdrop-blur-xs inset-0" />
       <div className="fixed top-1/2 left-1/2 text-center transform -translate-x-1/2 -translate-y-1/2 p-8 bg-white border border-neutral-gray rounded-lg">
         <p className="font-semibold mb-2 text-lg leading-tight">
           Are you sure you want to delete this user?

@@ -9,7 +9,7 @@ const UsersTable = async ({
   loggedInUser,
 }: {
   filter?: string;
-  loggedInUser: string;
+  loggedInUser: any;
 }) => {
   // Pass the filter to fetchUsers function
   const users = await fetchUsers(filter);
@@ -51,19 +51,21 @@ const UsersTable = async ({
             </td>
             <td>
               {user.name}{" "}
-              {user._id.toString() === loggedInUser.toString() && "(You)"}
+              {user._id.toString() === loggedInUser.id.toString() && "(You)"}
             </td>
             <td>{user.email}</td>
             <td>
               <UserRoleToggle
                 userId={user._id.toString()}
-                currentRole={user.role}
+                userRole={user.role}
+                loggedInUser={loggedInUser}
               />
             </td>
             <td>
-              {user._id.toString() !== loggedInUser.toString() && (
-                <DeleteUserButton userId={user._id.toString()} />
-              )}
+              {user._id.toString() !== loggedInUser.id.toString() &&
+                loggedInUser.role === "admin" && (
+                  <DeleteUserButton userId={user._id.toString()} />
+                )}
             </td>
           </tr>
         ))}

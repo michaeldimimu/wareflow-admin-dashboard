@@ -24,7 +24,7 @@ const UsersPage = async ({
       <Suspense
         fallback={<Loader2 className="animate-spin mx-auto my-16" size={64} />}
       >
-        <UsersTable filter={filter || "all"} loggedInUser={session.user.id} />
+        <UsersTable filter={filter || "all"} loggedInUser={session.user} />
       </Suspense>
       {showDetails && <UserDetails userId={showDetails} />}
     </div>
