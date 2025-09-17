@@ -4,7 +4,13 @@ import DeleteUserButton from "./delete-user-button";
 import UserRoleToggle from "./user-role-toggle";
 
 // Add filter prop to the component
-const UsersTable = async ({ filter }: { filter?: string }) => {
+const UsersTable = async ({
+  filter,
+  loggedInUser,
+}: {
+  filter?: string;
+  loggedInUser: string;
+}) => {
   // Pass the filter to fetchUsers function
   const users = await fetchUsers(filter);
 
@@ -34,7 +40,7 @@ const UsersTable = async ({ filter }: { filter?: string }) => {
       <tbody>
         {users.data?.map((user: any) => (
           <tr key={user._id}>
-            <td className="last:rounded-bl-lg">
+            <td>
               <Image
                 src={user.image}
                 alt={user.name}
@@ -43,7 +49,10 @@ const UsersTable = async ({ filter }: { filter?: string }) => {
                 className="rounded-full"
               />
             </td>
-            <td>{user.name}</td>
+            <td>
+              {user.name}{" "}
+              {user._id.toString() === loggedInUser.toString() && "(You)"}
+            </td>
             <td>{user.email}</td>
             <td>
               <UserRoleToggle
@@ -51,8 +60,10 @@ const UsersTable = async ({ filter }: { filter?: string }) => {
                 currentRole={user.role}
               />
             </td>
-            <td className="last:rounded-br-lg">
-              <DeleteUserButton userId={user._id.toString()} />
+            <td>
+              {user._id.toString() !== loggedInUser.toString() && (
+                <DeleteUserButton userId={user._id.toString()} />
+              )}
             </td>
           </tr>
         ))}
