@@ -1,7 +1,6 @@
 import { signOut } from "@/auth/auth";
 import getCachedSession from "@/auth/lib/getCachedSession";
 import { redirect } from "next/navigation";
-import { Bar } from "react-chartjs-2";
 
 export default async function Home() {
   const session = await getCachedSession();
